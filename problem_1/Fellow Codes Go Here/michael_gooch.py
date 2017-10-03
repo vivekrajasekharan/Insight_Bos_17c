@@ -24,6 +24,14 @@ class ListNode:
 
 def oddEvenList_Helper(head):
     # YOUR CODE GOES HERE
+
+    def move_current_node_onto_tmp_list(tmp_list_tail, current):
+        tmp_list_tail.next = current
+        tmp_list_tail = tmp_list_tail.next
+        current = current.next
+        tmp_list_tail.next = None
+        return tmp_list_tail, current
+
     odd_head = head
     odd_tail = odd_head
 
@@ -41,40 +49,14 @@ def oddEvenList_Helper(head):
     #detatch walked list from even_tail
     even_tail.next = None
 
-    # if odd_tail is not None:
-    #     print("odd tail data: ", odd_tail.data)
-    # else:
-    #     print("odd tail is None")
-    #
-    # if even_tail is not None:
-    #     print("even tail data", even_tail.data)
-    # else:
-    #     print("even tail is None")
-
     while current is not None:
-        # print("Current data: ", current.data)
         #currently odd
-        odd_tail.next = current
-        odd_tail = odd_tail.next
-        current = current.next
-        odd_tail.next = None
+        odd_tail, current = move_current_node_onto_tmp_list(tmp_list_tail=odd_tail, current=current)
 
         #currently even
         if current is not None:
-            even_tail.next = current
-            even_tail = even_tail.next
-            current = current.next
-            even_tail.next = None
+            even_tail, current = move_current_node_onto_tmp_list(tmp_list_tail=even_tail, current=current)
 
-        # if odd_tail is not None:
-        #     print("odd tail data: ", odd_tail.data)
-        # else:
-        #     print("odd tail is None")
-        #
-        # if even_tail is not None:
-        #     print("even tail data", even_tail.data)
-        # else:
-        #     print("even tail is None")
     # combine the two linked lists
     odd_tail.next = even_head
     return odd_head
