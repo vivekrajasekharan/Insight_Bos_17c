@@ -18,13 +18,25 @@ Explanation: It's the substring "abc" four times. (And the substring "abcabc" tw
 """
 
 def is_substring_helper (data):
-	#YOUR CODE GOES HERE
+    #YOUR CODE GOES HERE
+    length = len(data)
+    factor = 2
+    num_repeats = int(length / factor)
+    while num_repeats > 1:
+        if length % factor == 0:
+            # divisible by size, check for substr composition
+            data_slice = data[0:factor]
+            combined = "".join([data_slice for x in range(num_repeats)])
+            if combined == data:
+                return True
+        factor += 1
+        num_repeats = int(length / factor)
 
-	return False
+    return False
 
 #DON NOT CHANGE THIS FUNCTION
 def is_substring (string_input):
-	return is_substring_helper(string_input)
+    return is_substring_helper(string_input)
 
 
 #test case
