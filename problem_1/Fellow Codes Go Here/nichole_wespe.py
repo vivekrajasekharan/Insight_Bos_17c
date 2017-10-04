@@ -22,20 +22,26 @@ class ListNode:
         self.data = data
         self.link = None
 
+
 def oddEvenList_Helper(head):
     # YOUR CODE GOES HERE
 
     first_even = head.link  # need to save B with temp pointer
     curr_node = head  # initialize while loop with head node
 
+    i = 1
     while curr_node.link is not None:
-        print curr_node.data, curr_node.link.data
+        prev_node = curr_node  # remember for lists of even length
         next_node = curr_node.link  # place current node's link into temp holder
         curr_node.link = next_node.link  # reassign current node's link to next_node's link (i.e., skip a node)
         curr_node = next_node  # now run loop for the next node
+        i += 1
 
-    print first_even
-    curr_node.link = first_even
+    if i % 2 == 1:  # for odd-length list, connect last node to first even
+        curr_node.link = first_even
+    else:
+        prev_node.link = first_even
+
     return head
 
 
