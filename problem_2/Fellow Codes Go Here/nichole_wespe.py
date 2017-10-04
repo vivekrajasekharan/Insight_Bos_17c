@@ -65,10 +65,10 @@ def main():
     TEST_CASE2 = "aba"
     TEST_CASE3 = "abcabcabcabc"
 
+    # needed to add more test cases to check instances of >2 substring occurrences
     TEST_CASE4 = "abcabcabc"
     TEST_CASE5 = "abadabad"
     TEST_CASE6 = "aaaaa"
-
     TEST_CASE7 = "aaaab"
 
     print ("Testing your code with TEST_CASE1, the expected output is True, your output is {}".format(is_substring(TEST_CASE1)))
@@ -78,7 +78,6 @@ def main():
     print ("Testing your code with TEST_CASE4, the expected output is True, your output is {}".format(is_substring(TEST_CASE4)))
     print ("Testing your code with TEST_CASE5, the expected output is True, your output is {}".format(is_substring(TEST_CASE5)))
     print ("Testing your code with TEST_CASE6, the expected output is True, your output is {}".format(is_substring(TEST_CASE6)))
-
     print ("Testing your code with TEST_CASE7, the expected output is False, your output is {}".format(is_substring(TEST_CASE7)))
 
 
