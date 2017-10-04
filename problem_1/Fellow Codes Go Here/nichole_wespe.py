@@ -34,7 +34,6 @@ def oddEvenList_Helper(head):
         curr_node.link = next_node.link  # reassign current node's link to next_node's link (i.e., skip a node)
         curr_node = next_node  # now run loop for the next node
 
-    print first_even
     curr_node.link = first_even
     return head
 
