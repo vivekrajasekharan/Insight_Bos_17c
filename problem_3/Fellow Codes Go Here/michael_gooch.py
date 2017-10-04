@@ -15,24 +15,10 @@ class Node:
 
 def depth_helper(node):
     # YOUR CODE GOES HERE
-    from typing import List, Tuple
-
-    class Stack:
-        def __init__(self):
-            self.data = []  # type: List[Tuple[Node, int]]
-
-        def pop(self) -> 'Tuple[Node, int]':
-            return tuple(self.data.pop())
-
-        def push(self, item: 'Tuple[Node, int]'):
-            self.data.append(item)
-
-        def __len__(self):
-            return len(self.data)
     if node is None:
         return 0
-    stk = Stack()
-    stk.push((node, 1))
+    stk = list()
+    stk.append((node, 1))
     leaf_depths = []
     while len(stk):
         n, depth = stk.pop()  # type: Node, int
@@ -40,9 +26,9 @@ def depth_helper(node):
             leaf_depths.append(depth)
         else:
             if n.left is not None:
-                stk.push((n.left, depth + 1))
+                stk.append((n.left, depth + 1))
             if n.right is not None:
-                stk.push((n.right, depth + 1))
+                stk.append((n.right, depth + 1))
     return max(leaf_depths)
 
 
