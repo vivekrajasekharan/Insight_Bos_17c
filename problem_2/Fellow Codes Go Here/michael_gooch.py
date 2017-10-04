@@ -21,7 +21,7 @@ def is_substring_helper (data):
     #YOUR CODE GOES HERE
     length = len(data)
     repeat_length = int(length / 2)
-    while repeat_length > 1:
+    while repeat_length >= 1:
         if length % repeat_length == 0:
             # divisible by size, check for substr composition
             data_slice = data[0:repeat_length]
