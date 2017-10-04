@@ -29,7 +29,8 @@ def depth_helper(node):
 
         def __len__(self):
             return len(self.data)
-
+    if node is None:
+        return 0
     stk = Stack()
     stk.push((node, 1))
     leaf_depths = []
