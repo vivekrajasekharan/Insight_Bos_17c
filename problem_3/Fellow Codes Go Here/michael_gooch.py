@@ -15,21 +15,22 @@ class Node:
 
 def depth_helper(node):
     # YOUR CODE GOES HERE
+    leaf_depth = 0
     if node is None:
-        return 0
+        return leaf_depth
     stk = list()
     stk.append((node, 1))
-    leaf_depths = []
     while len(stk):
-        n, depth = stk.pop()  # type: Node, int
+        n, depth = stk.pop(0)  # type: Node, int
+        print('depth was: ', depth)
         if n.left is None and n.right is None:
-            leaf_depths.append(depth)
+            leaf_depth = depth
         else:
             if n.left is not None:
                 stk.append((n.left, depth + 1))
             if n.right is not None:
                 stk.append((n.right, depth + 1))
-    return max(leaf_depths)
+    return leaf_depth
 
 
 # PLEASE DO NOT CHANGE THIS
