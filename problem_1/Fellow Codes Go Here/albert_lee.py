@@ -34,6 +34,7 @@ def oddEvenList_Helper(head, counter=0):
         oddHead = ListNode(head.data)
         evenHead = None
         lastOddHead = oddHead
+        lastOddHead.next = None
 
     elif head.next.next == None:
         # This is satisfied if total length of orig. list is even
@@ -42,6 +43,7 @@ def oddEvenList_Helper(head, counter=0):
         oddHead = ListNode(head.data)
         evenHead = ListNode(head.next.data)
         lastOddHead = oddHead
+        lastOddHead.next = evenHead
 
     else:
         # Pick out topmost odd and even nodes separately from current iteration of list
