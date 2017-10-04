@@ -24,6 +24,8 @@ class ListNode:
 
 def oddEvenList_Helper(head):
     # YOUR CODE GOES HERE
+    if head is None:
+        return head
 
     def move_current_node_onto_tmp_list(tmp_list_tail, current):
         tmp_list_tail.next = current
