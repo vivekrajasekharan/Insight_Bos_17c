@@ -26,22 +26,20 @@ def oddEvenList_Helper(head):
     head_even=head_odd.next
     current_odd = head_odd
     current_even = head_even
-    go=True
+    go = True
 
     while go:
         current_odd.next = current_even.next
-        current_even.next = current_odd.next.next
-
         current_odd=current_odd.next
+    
+        current_even.next = current_even.next.next
         current_even=current_even.next
     
-        go=current_even
+        go = (current_even!= None and current_even.next!= None)
 
     current_odd.next = head_even
 
     return head_odd
-    
-    return None
 
 
 #DO NOT CHANGE THIS FUNCTION
